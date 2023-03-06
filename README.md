@@ -11,7 +11,11 @@ minSdkVersion -> 21
 
 Gradle build system
 
-Head over to the MAPS api above and get your own API-KEY as well.
+# Maps API KEY
+
+Before running the project add the maps API key. Go to your gradle.properties file, then add this line:
+
+```MAPS_API_KEY="AIzaSyBcjeoJvP7zuhdwe3ocMkoPf9ALT7w4Otk"```
 
 
 ## TOC
