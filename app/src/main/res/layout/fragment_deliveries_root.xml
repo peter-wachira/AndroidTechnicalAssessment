@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/deliveries_pager"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/appbar"
+            app:tabIndicatorColor="@color/colorAccent"
+            app:tabSelectedTextColor="@color/colorAccent"
+            app:tabTextAppearance="@style/WorkSansTab"
+            app:tabTextColor="@android:color/black"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </androidx.viewpager.widget.ViewPager>
+
+    <com.leinardi.android.speeddial.SpeedDialView
+        android:id="@+id/speed_dial_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:sdMainFabClosedBackgroundColor="@android:color/white"
+        app:sdMainFabClosedIconColor="@color/colorPrimary"
+        app:sdMainFabClosedSrc="@drawable/ic_add_24"
+        app:sdMainFabOpenedBackgroundColor="@android:color/white"
+        app:sdMainFabOpenedIconColor="@color/colorPrimary"
+        app:sdMainFabOpenedSrc="@drawable/ic_baseline_clear_24" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

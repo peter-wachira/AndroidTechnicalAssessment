@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="fab_pause" type="id" />
+    <item name="fab_end" type="id" />
+    <item name="fab_cancel" type="id" />
+    <item name="fab_new_order" type="id" />
+</resources>

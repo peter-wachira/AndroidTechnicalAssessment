@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">DirverApp</string>
+    <string name="deliveries">Deliveries</string>
+    <string name="online">online</string>
+    <string name="histories">histories</string>
+    <string name="sales_areas">sales areas</string>
+    <string name="check_out">check out</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
 </resources>
