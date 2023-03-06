@@ -1,9 +1,10 @@
-package com.example.dirverapp
+package com.example.dirverapp.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.dirverapp.R
 
-class MainActivity : AppCompatActivity() {
+class DeliveriesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
