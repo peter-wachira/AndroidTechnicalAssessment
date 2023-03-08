@@ -1,3 +1,8 @@
 package com.example.dirverapp.data.remote
 
-class OrderItemsResponse : ArrayList<OrderItemsResponseItem>()
+import com.google.gson.annotations.SerializedName
+
+data class OrderItemsResponse(
+    @SerializedName("orders")
+    val orders: List<Order>,
+)
