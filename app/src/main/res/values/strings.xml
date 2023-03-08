@@ -7,4 +7,6 @@
     <string name="check_out">check out</string>
     <string name="open">open</string>
     <string name="close">close</string>
+    <string name="deliveries_will_appear_here">Deliveries will appear here</string>
+    <string name="end_trip">end trip</string>
 </resources>
