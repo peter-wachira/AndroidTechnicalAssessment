@@ -4,8 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.dirverapp.data.remote.OrderEntity
 import com.example.dirverapp.data.remote.OrderItemsResponse
-import com.example.dirverapp.other.Resource
 import com.example.dirverapp.ui.list.DeliveriesRepositoryInterface
+import com.example.dirverapp.utils.ApiResponse
+import com.example.dirverapp.utils.ErrorHolder
 
 class FakeDeliveriesRepository : DeliveriesRepositoryInterface {
 
@@ -22,7 +23,7 @@ class FakeDeliveriesRepository : DeliveriesRepositoryInterface {
         shouldReturnNetworkError = value
     }
 
-    override suspend fun observeAllOrders(): LiveData<List<OrderEntity>> {
+    override fun observeAllOrders(): LiveData<List<OrderEntity>> {
         return observeAllOrderItems
     }
 
@@ -34,11 +35,11 @@ class FakeDeliveriesRepository : DeliveriesRepositoryInterface {
         orderItems.remove(orderEntity)
     }
 
-    override suspend fun getOrders(): Resource<OrderItemsResponse> {
+    override suspend fun getOrders(): ApiResponse<OrderItemsResponse> {
         return if (shouldReturnNetworkError) {
-            Resource.error("Error", null)
+            ApiResponse.Failure(ErrorHolder("Error", null))
         } else {
-            Resource.success(OrderItemsResponse(listOf()))
+            ApiResponse.Success(OrderItemsResponse(listOf()))
         }
     }
 }

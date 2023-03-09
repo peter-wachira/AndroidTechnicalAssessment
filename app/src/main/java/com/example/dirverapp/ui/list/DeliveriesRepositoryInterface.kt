@@ -3,11 +3,11 @@ package com.example.dirverapp.ui.list
 import androidx.lifecycle.LiveData
 import com.example.dirverapp.data.remote.OrderEntity
 import com.example.dirverapp.data.remote.OrderItemsResponse
-import com.example.dirverapp.other.Resource
+import com.example.dirverapp.utils.ApiResponse
 
 interface DeliveriesRepositoryInterface {
-    suspend fun observeAllOrders(): LiveData<List<OrderEntity>>
+    fun observeAllOrders(): LiveData<List<OrderEntity>>
     suspend fun insertOrder(orderEntity: OrderEntity)
     suspend fun deleteOrderItem(orderEntity: OrderEntity)
-    suspend fun getOrders(): Resource<OrderItemsResponse>
+    suspend fun getOrders(): ApiResponse<OrderItemsResponse>
 }
