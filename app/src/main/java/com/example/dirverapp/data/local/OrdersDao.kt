@@ -14,7 +14,7 @@ interface OrdersDao {
     suspend fun insertOrder(vararg orderEntity: OrderEntity)
 
     @Query("SELECT * FROM orders")
-    suspend fun observeAllOrders(): LiveData<List<OrderEntity>>
+    fun observeAllOrders(): LiveData<List<OrderEntity>>
 
     @Delete
     suspend fun deleteOrderItem(orderEntity: OrderEntity)

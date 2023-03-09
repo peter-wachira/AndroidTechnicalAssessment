@@ -9,7 +9,7 @@ import com.example.dirverapp.data.remote.OrderEntity
 import com.example.dirverapp.getOrAwaitValue
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -42,7 +42,7 @@ class OrderDaoTest {
     }
 
     @Test
-    fun insertOrderItem() = runBlocking {
+    fun insertOrderItem() = runBlockingTest {
         val orderItem = OrderEntity("John Smith", "456 Elm St", "67890", "5678", "5678", -1.283333, 36.816667, "Nairobi", "Delivered", "B234", "C789")
         ordersDao.insertOrder(orderItem)
         /*convert livedata item to list */
@@ -51,7 +51,7 @@ class OrderDaoTest {
     }
 
     @Test
-    fun deleteShoppingItems() = runBlocking {
+    fun deleteShoppingItems() = runBlockingTest {
         val orderItem = OrderEntity("John Smith", "456 Elm St", "67890", "5678", "5678", -1.283333, 36.816667, "Nairobi", "Delivered", "B234", "C789")
         ordersDao.insertOrder(orderItem)
         ordersDao.deleteOrderItem(orderItem)
@@ -60,7 +60,7 @@ class OrderDaoTest {
     }
 
     @Test
-    fun observeAllShoppingItems() = runBlocking {
+    fun observeAllShoppingItems() = runBlockingTest {
         val orderItem1 = OrderEntity("John Smith", "456 Elm St", "133", "5678", "5678", -1.283333, 36.816667, "Nairobi", "Delivered", "B234", "C789")
         val orderItem2 = OrderEntity("John Smith", "456 Elm St", "144", "5678", "5678", -1.283333, 36.816667, "Nairobi", "Delivered", "B234", "C789")
         val orderItem3 = OrderEntity("John Smith", "456 Elm St", "155", "5678", "5678", -1.283333, 36.816667, "Nairobi", "Delivered", "B234", "C789")
