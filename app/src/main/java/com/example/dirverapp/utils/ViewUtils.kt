@@ -1,4 +1,4 @@
-package com.example.dirverapp.other
+package com.example.dirverapp.utils
 
 import android.app.Activity
 import android.content.Intent
@@ -64,4 +64,38 @@ fun View.showRetrySnackBar(message: String, action: ((View) -> Unit)?) {
         }
         show()
     }
+}
+
+fun View.showErrorSnackbar(message: String, length: Int = Snackbar.LENGTH_LONG) {
+    val snackbar = Snackbar.make(this, message, length)
+
+    snackbar.apply {
+        this.setBackgroundTint(ContextCompat.getColor(this.context, android.R.color.holo_red_light))
+        this.setTextColor(ContextCompat.getColor(this.context, android.R.color.white))
+        show()
+    }
+}
+
+fun View.visible(isVisible: Boolean) {
+    visibility = if (isVisible) View.VISIBLE else View.GONE
+}
+
+fun View.show() {
+    visibility = View.VISIBLE
+}
+
+fun View.hide() {
+    visibility = View.GONE
+}
+
+fun View.makeInvisible() {
+    visibility = View.INVISIBLE
+}
+
+fun View.enable() {
+    isEnabled = true
+}
+
+fun View.disable() {
+    isEnabled = false
 }
