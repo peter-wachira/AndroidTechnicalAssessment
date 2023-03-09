@@ -8,7 +8,9 @@ import androidx.core.view.GravityCompat
 import com.example.dirverapp.R
 import com.example.dirverapp.databinding.ActivityDeliveriesBinding
 import com.google.android.material.navigation.NavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DeliveriesActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private val binding: ActivityDeliveriesBinding by lazy {
@@ -19,8 +21,6 @@ class DeliveriesActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setSupportActionBar(binding.deliveriesToolbar)
-        observeViewModel()
-
         setupDrawer()
     }
 
@@ -51,9 +51,5 @@ class DeliveriesActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
 
         binding.drawerLayoutDeliveries.closeDrawer(GravityCompat.START)
         return true
-    }
-
-    private fun observeViewModel() {
-        TODO("Not yet implemented")
     }
 }
