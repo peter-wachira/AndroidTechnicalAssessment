@@ -1,7 +1,7 @@
 package com.example.dirverapp.other
 
-import com.example.dirverapp.data.remote.Order
-import com.example.dirverapp.data.remote.OrderEntity
+import com.example.dirverapp.data.remote.orders.Order
+import com.example.dirverapp.data.remote.orders.OrderEntity
 
 fun Order.toOrderEntity(): OrderEntity = OrderEntity(
     this.customerName,
@@ -14,5 +14,7 @@ fun Order.toOrderEntity(): OrderEntity = OrderEntity(
     this.deliverLocationName,
     this.orderStatus,
     this.customerTyCode,
-    this.customerCode
+    this.customerCode,
 )
+
+

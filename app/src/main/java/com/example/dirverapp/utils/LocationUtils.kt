@@ -1,17 +1,26 @@
-package com.example.dirverapp.other
+package com.example.dirverapp.utils
 
 import android.Manifest
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.* // ktlint-disable no-wildcard-imports
+import android.graphics.drawable.BitmapDrawable
 import android.location.LocationManager
 import android.net.Uri
 import android.provider.Settings
 import androidx.annotation.Keep
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.location.LocationManagerCompat
 import com.example.dirverapp.BuildConfig
+import com.example.dirverapp.R
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.model.BitmapDescriptor
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
@@ -98,4 +107,25 @@ fun Activity.showLocationDialog(locationAction: LocationAction) {
         }
         show()
     }
+}
+
+const val MAP_CAMERA_ZOOM = 10F
+
+fun GoogleMap.moveCameraWithAnim(latLng: LatLng) {
+    animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, MAP_CAMERA_ZOOM))
+}
+
+fun Context.getShopIcon(): BitmapDescriptor {
+    val vehicleIcon = ContextCompat.getDrawable(this, R.drawable.shop_icon_png) as BitmapDrawable
+
+    val color = ContextCompat.getColor(this, R.color.colorAccent)
+
+    val smallMarker = Bitmap.createScaledBitmap(vehicleIcon.bitmap, 80, 80, false)
+
+    val paint = Paint()
+    val canvas = Canvas(smallMarker)
+
+    paint.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN)
+    canvas.drawBitmap(smallMarker, 0F, 0F, paint)
+    return BitmapDescriptorFactory.fromBitmap(smallMarker)
 }
