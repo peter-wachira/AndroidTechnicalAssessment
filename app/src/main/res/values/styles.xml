@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="android:colorControlHighlight">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:fontFamily">@font/work_sans</item>
+        <item name="fontFamily">@font/work_sans</item>
+        <item name="android:textAppearance">@style/WorkSansStyle</item>
+        <item name="textAppearanceBody1">@style/WorkSansStyle</item>
+        <item name="tabTextAppearance">@style/WorkSansTab</item>
+
+    </style>
+
+
+    <style name="WorkSansStyle" parent="TextAppearance.AppCompat.Body1">
+        <item name="fontFamily">@font/work_sans</item>
+        <item name="android:fontFamily">@font/work_sans</item>
+    </style>
+
+    <style name="WorkSansTitle">
+        <item name="fontFamily">@font/work_sans</item>
+        <item name="android:fontFamily">@font/work_sans</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="WorkSansTab" parent="TextAppearance.AppCompat.Body1">
+        <item name="fontFamily">@font/work_sans</item>
+        <item name="android:fontFamily">@font/work_sans</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="OnlineSwitchTheme" parent="Theme.AppCompat.Light">
+        <!-- active thumb & track color (30% transparency) -->
+        <item name="colorControlActivated">@color/colorGreen</item>
+        <item name="textOn">@string/online</item>
+        <item name="textOff">@string/offline</item>
+
+        <!-- inactive thumb color -->
+        <item name="colorSwitchThumbNormal">@android:color/darker_gray</item>
+
+        <!-- inactive track color (30% transparency) -->
+        <item name="android:colorForeground">#42221f1f</item>
+    </style>
+
+    <string name="offline">offline</string>
+</resources>

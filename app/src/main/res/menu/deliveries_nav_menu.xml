@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/deliveriesHistory"
+        android:icon="@drawable/ic_baseline_access_time_24"
+        android:title="@string/histories" />
+
+    <item
+        android:id="@+id/salesAreas"
+        android:icon="@drawable/ic_area_chart_outlined"
+        android:title="@string/sales_areas" />
+
+</menu>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_driver_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/offline_switch"
+        app:layout_constraintStart_toStartOf="@+id/image_layout"
+        app:layout_constraintTop_toBottomOf="@+id/image_layout"
+        android:letterSpacing="0"
+        android:text="@string/john_doe" />
+
+    <FrameLayout
+        android:id="@+id/image_layout"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/driver_avi"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:src="@drawable/ic_baseline_person_24"
+            android:visibility="gone" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_name_avi"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:background="@drawable/textview_circular"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:text="@string/jd" />
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_driver_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_driver_name"
+        app:srcCompat="@drawable/ic_baseline_local_phone_24"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_driver_phone_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        android:text="@string/_0712_345_678" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/sell_black_24dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_driver_till_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        android:text="@string/_123445" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/offline_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        tools:checked="true"
+        android:fontFamily="@font/work_sans"
+        android:showText="true"
+        tools:text="@string/online"
+        android:theme="@style/OnlineSwitchTheme"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_driver_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_driver_name"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:srcCompat="@drawable/ic_truck"
+        app:tint="@color/cardview_dark_background" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_asset_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+        app:layout_constraintStart_toStartOf="@+id/tv_driver_till_number"
+        app:layout_constraintTop_toTopOf="@+id/imageView11"
+        android:text="@string/kdh_1236e" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

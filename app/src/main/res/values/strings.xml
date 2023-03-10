@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">DirverApp</string>
+    <string name="deliveries">Deliveries</string>
+    <string name="online">online</string>
+    <string name="histories">histories</string>
+    <string name="sales_areas">sales areas</string>
+    <string name="check_out">check out</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="deliveries_will_appear_here">Deliveries will appear here</string>
+    <string name="end_trip">end trip</string>
+    <string name="loading_map_please_wait">Loading map. Please wait…</string>
+    <string name="order_details">order details</string>
+    <string name="directions">directions</string>
+    <string name="complete_payment">complete payment</string>
+    <string name="john_doe">John Doe</string>
+    <string name="jd">JD</string>
+    <string name="_0712_345_678">0712 345 678</string>
+    <string name="_123445">123445</string>
+    <string name="kdh_1236e">KDH 1236E</string>
 </resources>
