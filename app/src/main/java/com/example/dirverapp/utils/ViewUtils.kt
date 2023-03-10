@@ -1,8 +1,12 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.dirverapp.utils
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.view.View
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -76,9 +80,7 @@ fun View.showErrorSnackbar(message: String, length: Int = Snackbar.LENGTH_LONG) 
     }
 }
 
-fun View.visible(isVisible: Boolean) {
-    visibility = if (isVisible) View.VISIBLE else View.GONE
-}
+fun Context.showToast(message: String, length: Int = Toast.LENGTH_LONG) = Toast.makeText(this, message, length).show()
 
 fun View.show() {
     visibility = View.VISIBLE
@@ -86,14 +88,6 @@ fun View.show() {
 
 fun View.hide() {
     visibility = View.GONE
-}
-
-fun View.makeInvisible() {
-    visibility = View.INVISIBLE
-}
-
-fun View.enable() {
-    isEnabled = true
 }
 
 fun View.disable() {

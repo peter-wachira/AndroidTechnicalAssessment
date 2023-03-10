@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.callbackFlow
 import timber.log.Timber
 import javax.inject.Inject
 
+@Suppress("DEPRECATION")
 class UpdateLocation @Inject constructor(
     private val client: FusedLocationProviderClient,
 ) {
@@ -39,28 +40,6 @@ class UpdateLocation @Inject constructor(
             Timber.e("location updates removed")
             client.removeLocationUpdates(callBack)
         }
-    }
-
-    @SuppressLint("MissingPermission")
-    fun fetchContinuousUpdates(): Flow<Location> = callbackFlow {
-        val locationRequest = LocationRequest.create().apply {
-            interval = 5000L
-            fastestInterval = interval
-            priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-        }
-
-        val callBack = object : LocationCallback() {
-            override fun onLocationResult(locationResult: LocationResult) {
-                super.onLocationResult(locationResult)
-                val location = locationResult.lastLocation
-                Timber.e("updated location $location")
-                if (location != null) {
-                    trySend(location)
-                }
-            }
-        }
-        client.requestLocationUpdates(locationRequest, callBack, Looper.getMainLooper())
-        awaitClose { client.removeLocationUpdates(callBack) }
     }
 
     companion object {

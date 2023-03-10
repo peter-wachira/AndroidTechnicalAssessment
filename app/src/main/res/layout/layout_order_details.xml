@@ -49,6 +49,8 @@
             android:maxLines="1"
             android:textColor="@color/colorPrimary"
             app:fontFamily="@font/work_sans"
+            android:drawablePadding="4dp"
+            android:padding="4dp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_customer_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias=".0"

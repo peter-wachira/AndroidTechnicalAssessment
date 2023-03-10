@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="@+id/image_layout"
         app:layout_constraintTop_toBottomOf="@+id/image_layout"
         android:letterSpacing="0"
-        android:text="John Doe" />
+        android:text="@string/john_doe" />
 
     <FrameLayout
         android:id="@+id/image_layout"
@@ -43,7 +43,7 @@
             android:gravity="center"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
-            tools:text="JD" />
+            android:text="@string/jd" />
     </FrameLayout>
 
     <ImageView
@@ -64,7 +64,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
-        android:text="0712 345 678" />
+        android:text="@string/_0712_345_678" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -85,7 +85,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="@+id/imageView3"
-        android:text="123445" />
+        android:text="@string/_123445" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/offline_switch"
@@ -125,7 +125,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView11"
         app:layout_constraintStart_toStartOf="@+id/tv_driver_till_number"
         app:layout_constraintTop_toTopOf="@+id/imageView11"
-        android:text="KDH 1236E" />
+        android:text="@string/kdh_1236e" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

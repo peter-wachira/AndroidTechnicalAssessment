@@ -13,4 +13,9 @@
     <string name="order_details">order details</string>
     <string name="directions">directions</string>
     <string name="complete_payment">complete payment</string>
+    <string name="john_doe">John Doe</string>
+    <string name="jd">JD</string>
+    <string name="_0712_345_678">0712 345 678</string>
+    <string name="_123445">123445</string>
+    <string name="kdh_1236e">KDH 1236E</string>
 </resources>
