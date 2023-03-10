@@ -1,4 +1,4 @@
-package com.example.dirverapp.data.remote
+package com.example.dirverapp.data.remote.orders
 
 import com.google.gson.annotations.SerializedName
 

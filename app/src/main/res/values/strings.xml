@@ -9,4 +9,8 @@
     <string name="close">close</string>
     <string name="deliveries_will_appear_here">Deliveries will appear here</string>
     <string name="end_trip">end trip</string>
+    <string name="loading_map_please_wait">Loading map. Please wait…</string>
+    <string name="order_details">order details</string>
+    <string name="directions">directions</string>
+    <string name="complete_payment">complete payment</string>
 </resources>

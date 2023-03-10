@@ -1,17 +1,20 @@
 package com.example.dirverapp.ui.list
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.dirverapp.data.remote.Order
+import com.example.dirverapp.data.remote.orders.OrderEntity
 import com.example.dirverapp.databinding.LayoutOrderDetailsBinding
 
-class OrdersAdapter :
-    androidx.recyclerview.widget.ListAdapter<Order, RecyclerView.ViewHolder>(diffUtil) {
+class OrdersAdapter : ListAdapter<OrderEntity, OrdersAdapter.ViewHolder>(diffUtil) {
     inner class ViewHolder(private val binding: LayoutOrderDetailsBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: Order) {
+
+        @SuppressLint("SetTextI18n")
+        fun bind(item: OrderEntity) {
             with(binding) {
                 tvOrderDeliveryLocation.text = item.deliverLocationName
                 tvCustomerName.text = item.customerName
@@ -20,7 +23,7 @@ class OrdersAdapter :
 
                 val position = layoutPosition
 
-                tvCount.text = "${position + 1} of ${getItem(position)}"
+                tvCount.text = "${position + 1} "
 
                 root.setOnClickListener {
                 }
@@ -28,32 +31,26 @@ class OrdersAdapter :
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return ViewHolder(
-            LayoutOrderDetailsBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false,
-            ),
-        )
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
+        LayoutOrderDetailsBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+    )
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as OrdersAdapter.ViewHolder).bind(getItem(position))
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(getItem(position))
     }
 }
 
-val diffUtil = object : DiffUtil.ItemCallback<Order>() {
+val diffUtil = object : DiffUtil.ItemCallback<OrderEntity>() {
     override fun areItemsTheSame(
-        oldItem: Order,
-        newItem: Order,
+        oldItem: OrderEntity,
+        newItem: OrderEntity,
     ): Boolean {
         return oldItem.orderBatchNumber == newItem.orderBatchNumber
     }
 
     override fun areContentsTheSame(
-        oldItem: Order,
-        newItem: Order,
+        oldItem: OrderEntity,
+        newItem: OrderEntity,
     ): Boolean {
         return oldItem == newItem
     }

@@ -2,7 +2,7 @@ package com.example.dirverapp.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.dirverapp.data.remote.OrderEntity
+import com.example.dirverapp.data.remote.orders.OrderEntity
 
 @Database(
     entities = [OrderEntity::class],

@@ -1,5 +1,4 @@
-package com.example.dirverapp.data.remote
-
+package com.example.dirverapp.data.remote.orders
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -27,9 +26,8 @@ data class Order(
     @SerializedName("primaryPhone")
     val primaryPhone: String,
     @SerializedName("secondaryPhone")
-    val secondaryPhone: String
+    val secondaryPhone: String,
 )
-
 
 @Entity(tableName = "orders")
 data class OrderEntity(
