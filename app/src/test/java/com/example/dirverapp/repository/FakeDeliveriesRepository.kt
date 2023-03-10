@@ -2,8 +2,9 @@ package com.example.dirverapp.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.dirverapp.data.remote.OrderEntity
-import com.example.dirverapp.data.remote.OrderItemsResponse
+import com.example.dirverapp.data.remote.directions.SalesAreasResponse
+import com.example.dirverapp.data.remote.orders.OrderEntity
+import com.example.dirverapp.data.remote.orders.OrderItemsResponse
 import com.example.dirverapp.ui.list.DeliveriesRepositoryInterface
 import com.example.dirverapp.utils.ApiResponse
 import com.example.dirverapp.utils.ErrorHolder
@@ -40,6 +41,14 @@ class FakeDeliveriesRepository : DeliveriesRepositoryInterface {
             ApiResponse.Failure(ErrorHolder("Error", null))
         } else {
             ApiResponse.Success(OrderItemsResponse(listOf()))
+        }
+    }
+
+    override suspend fun getGeoPoints(): ApiResponse<SalesAreasResponse> {
+        return if (shouldReturnNetworkError) {
+            ApiResponse.Failure(ErrorHolder("Error", null))
+        } else {
+            ApiResponse.Success(SalesAreasResponse(listOf()))
         }
     }
 }

@@ -7,6 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.example.dirverapp.R
 import com.example.dirverapp.databinding.ActivityDeliveriesBinding
+import com.example.dirverapp.utils.LocationException
+import com.example.dirverapp.utils.getLocationPermission
+import com.example.dirverapp.utils.isLocationPermissionEnabled
+import com.example.dirverapp.utils.showRetrySnackBar
 import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -38,17 +42,28 @@ class DeliveriesActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         setupNavigation()
     }
 
+    private fun requestLocationPermission() {
+        getLocationPermission(
+            onPermissionAccepted = {},
+            errorMessage = { locationException ->
+                if (locationException is LocationException.RationaleException) {
+                    binding.root.showRetrySnackBar(locationException.errorMessage) { requestLocationPermission() }
+                }
+            },
+        )
+    }
+
     private fun setupNavigation() {
         binding.deliveriesToolbar.setNavigationOnClickListener {
             binding.drawerLayoutDeliveries.openDrawer(GravityCompat.START)
         }
+        if (isLocationPermissionEnabled()) {
+        } else {
+            requestLocationPermission()
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            // Switch different options
-        }
-
         binding.drawerLayoutDeliveries.closeDrawer(GravityCompat.START)
         return true
     }

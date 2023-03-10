@@ -1,14 +1,8 @@
 package com.example.dirverapp.ui.list
 
 import android.location.Location
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.dirverapp.data.remote.OrderEntity
-import com.example.dirverapp.data.remote.OrderItemsResponse
-import com.example.dirverapp.other.Event
-import com.example.dirverapp.other.Resource
+import androidx.lifecycle.* // ktlint-disable no-wildcard-imports
+import com.example.dirverapp.data.remote.orders.OrderItemsResponse
 import com.example.dirverapp.other.toOrderEntity
 import com.example.dirverapp.utils.ApiResponse
 import com.example.dirverapp.utils.UpdateLocation
@@ -18,6 +12,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -29,21 +24,12 @@ class DeliveriesViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading
 
-    val orderItems = repository.observeAllOrders()
-
     private val _orders = MutableLiveData<ApiResponse<OrderItemsResponse>>()
     val orders: LiveData<ApiResponse<OrderItemsResponse>> = _orders
-
-    private val _insertOrderItems = MutableLiveData<Event<Resource<OrderEntity>>>()
-    val insertOrderItems: LiveData<Event<Resource<OrderEntity>>> = _insertOrderItems
 
     private val _currentLocation: MutableLiveData<Location> = MutableLiveData()
     val currentLocation: LiveData<Location>
         get() = _currentLocation
-
-    fun deleteOrderItem(orderEntity: OrderEntity) = viewModelScope.launch {
-        repository.deleteOrderItem(orderEntity)
-    }
 
     fun getLocation() = viewModelScope.launch {
         _isLoading.value = true
@@ -65,6 +51,7 @@ class DeliveriesViewModel @Inject constructor(
             val allOrders = orders.value
             _orders.postValue(ApiResponse.Success(allOrders))
         }
+        _isLoading.value = false
     }
 
     private suspend fun insertToDB(orders: ApiResponse<OrderItemsResponse>) = viewModelScope.launch {
@@ -74,5 +61,13 @@ class DeliveriesViewModel @Inject constructor(
                 repository.insertOrder(it.toOrderEntity())
             }
         }
+    }
+
+    fun observeAllOrderItems() = flow {
+        emit(repository.getOrders())
+    }
+
+    fun getAreaGeoPoints() = liveData {
+        emit(repository.getGeoPoints())
     }
 }

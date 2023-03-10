@@ -3,7 +3,7 @@ package com.example.dirverapp.ui.list
 import androidx.lifecycle.LiveData
 import com.example.dirverapp.data.local.OrdersDao
 import com.example.dirverapp.data.remote.MockAPI
-import com.example.dirverapp.data.remote.OrderEntity
+import com.example.dirverapp.data.remote.orders.OrderEntity
 import com.example.dirverapp.data.repository.BaseRepository
 import javax.inject.Inject
 
@@ -26,5 +26,9 @@ class DeliveriesRepository @Inject constructor(
 
     override suspend fun getOrders() = apiCall {
         mockAPI.getOrders()
+    }
+
+    override suspend fun getGeoPoints() = apiCall {
+        mockAPI.getSalesAreaDetails()
     }
 }

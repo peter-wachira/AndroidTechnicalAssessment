@@ -1,8 +1,6 @@
 package com.example.dirverapp.ui.list
 
-import android.content.Intent
 import android.os.Bundle
-import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.example.dirverapp.data.remote.OrderItemsResponse
+import com.example.dirverapp.data.remote.orders.OrderItemsResponse
 import com.example.dirverapp.databinding.FragmentDeliveriesBinding
 import com.example.dirverapp.other.* // ktlint-disable no-wildcard-imports
 import com.example.dirverapp.utils.* // ktlint-disable no-wildcard-imports
-import com.example.dirverapp.utils.showErrorDialog
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
@@ -36,40 +33,7 @@ class DeliveriesFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         setupViews()
     }
 
-    override fun onResume() {
-        super.onResume()
-
-        if (binding.root.context.isLocationPermissionEnabled()) {
-            if (binding.root.context.isLocationEnabled()) {
-                getLastLocation()
-            } else {
-                showLocationDialog()
-            }
-        } else {
-            // request location Permission
-            requestLocationPermission()
-        }
-    }
-
-    private fun showLocationDialog() {
-        activity?.showErrorDialog(
-            "Location Disabled",
-            "Your Location seems to be turned off",
-            true,
-        ) {
-            Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS).apply {
-                startActivity(this)
-            }
-        }
-    }
-
-    private fun getLastLocation() {
-        lifecycleScope.launchWhenStarted {
-            viewModel.getLocation()
-        }
-    }
-
-    fun setupViews() {
+    private fun setupViews() {
         binding.root.setOnRefreshListener(this)
     }
 
@@ -114,6 +78,8 @@ class DeliveriesFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
                         imgEmptyList.hide()
                         tvEmpty.hide()
                     }
+
+                    ordersAdapter.submitList(response.value.orders.map { it.toOrderEntity() })
                 } else {
                     binding.apply {
                         imgEmptyList.show()
@@ -128,28 +94,6 @@ class DeliveriesFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         }
     }
 
-    private fun requestLocationPermission() {
-        activity?.getLocationPermission(
-            onPermissionAccepted = {
-                getLastLocation()
-            },
-            errorMessage = { locationException ->
-                if (locationException is LocationException.RationaleException) {
-                    binding.root.showRetrySnackBar(locationException.errorMessage) { requestLocationPermission() }
-                }
-            },
-        )
-    }
-
     override fun onRefresh() {
-        if (binding.root.context.isLocationPermissionEnabled()) {
-            if (binding.root.context.isLocationEnabled()) {
-                getLastLocation()
-            } else {
-                activity?.showLocationDialog(LocationAction.GPS)
-            }
-        } else {
-            requestLocationPermission()
-        }
     }
 }

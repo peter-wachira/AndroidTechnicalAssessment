@@ -1,14 +1,20 @@
 package com.example.dirverapp.ui
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.dirverapp.R
 import com.example.dirverapp.databinding.FragmentDeliveriesRootBinding
 import com.example.dirverapp.ui.adapter.DeliveriesPagerAdapter
+import com.example.dirverapp.utils.showToast
 import com.google.android.material.tabs.TabLayout
 import com.leinardi.android.speeddial.SpeedDialActionItem
 import dagger.hilt.android.AndroidEntryPoint
@@ -83,21 +89,41 @@ class DeliveriesRootFragment : Fragment() {
         binding.speedDialView.setOnActionSelectedListener { item ->
             when (item.id) {
                 R.id.fab_new_order -> {
-                    // New Order
+                    activity?.showToast("")
                 }
 
                 R.id.fab_pause -> {
-                    // Navigate to Pause Trip
-                    // activity?.navigateTo<PauseTripActivity>()
+                    showNotification()
                 }
 
                 R.id.fab_end -> {
-                    // End Trip
+                    activity?.showToast("Trip Ended Successfully")
                 }
             }
 
             binding.speedDialView.close()
             return@setOnActionSelectedListener true
         }
+    }
+
+    fun showNotification() {
+        val channelId = "MyChannelId"
+        val notificationBuilder = context?.let {
+            NotificationCompat.Builder(it, channelId)
+                .setSmallIcon(R.drawable.notification_icon)
+                .setContentTitle("Trip Paused")
+                .setContentText("The current trip has been paused successfully and reassigned to driver KDA 145E.")
+                .setStyle(NotificationCompat.BigTextStyle().bigText("The current trip has been paused successfully and reassigned to driver KDA 145E."))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+        }
+        val notificationManager =
+            context?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(channelId, "MyChannelName", NotificationManager.IMPORTANCE_DEFAULT)
+            notificationManager.createNotificationChannel(channel)
+        }
+
+        notificationManager.notify(1, notificationBuilder?.build())
     }
 }
