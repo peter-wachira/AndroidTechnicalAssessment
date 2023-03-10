@@ -11,7 +11,11 @@ minSdkVersion -> 21
 
 Gradle build system
 
-Head over to the MAPS api above and get your own API-KEY as well.
+# Maps API KEY
+
+Before running the project add the maps API key. Go to your gradle.properties file, then add this line:
+
+```MAPS_API_KEY="AIzaSyBcjeoJvP7zuhdwe3ocMkoPf9ALT7w4Otk"```
 
 
 ## TOC
@@ -48,7 +52,7 @@ The App is not organized into multiple modules but follows the same principles o
 the Presentation, Domain, and Data Layers.
 The presentation layer handles the UI work with the logic contained in the **ViewModel**.
 The UI uses a **LiveData** object from the ViewModel and observes it using the **Observer Pattern**.
-A ListAdapter handles the actual displaying of the news. Data over the network is retrieved using
+A ListAdapter handles the actual displaying of the orders. Data over the network is retrieved using
 **retrofit** and **coroutines** to handle background work asynchronously. Additionally, note that
 the ViewModel uses the **viewModelScope** to launch the coroutines while Fragments use the **viewLifeCycleOwner**
 to observe data.
@@ -61,14 +65,14 @@ The data layer uses the recommended **Repository Pattern** to make the network c
 
 Once the app is launched, the user has the option of choosing a delivery order to fulfill.
 
-**Delivery Details Screen**
+**Delivery details Screen**
 
-This screen is accessible from the Deliveries screen to allow Driver to see the order details.
+This screen is accessible from the Deliveries screen to allow driver to see the order details.
 
 
-**Pause Trip Screen**
+**Pause trip screen**
 
-This screen is accessible from the Deliveries screen to allow Driver to Pause a Trip.
+This screen is accessible from the Deliveries screen to allow driver to pause a trip.
 
 ## Libraries
 

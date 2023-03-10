@@ -2,13 +2,12 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
     id("androidx.navigation.safeargs.kotlin")
     id("dagger.hilt.android.plugin")
     id("kotlin-parcelize")
-    id 'com.google.firebase.firebase-perf'
     id 'com.google.secrets_gradle_plugin' version '0.5'
-    id 'com.google.firebase.appdistribution'
     id("io.gitlab.arturbosch.detekt")
 }
 
@@ -24,6 +23,7 @@ android {
         versionCode 1
         versionName "1.0"
 
+        buildConfigField("String","MAPS_API_KEY",MAPS_API_KEY)
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -33,6 +33,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures {
+        viewBinding true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
@@ -50,6 +55,20 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
+    //GMS
+    implementation("com.google.android.gms:play-services-location:21.0.1")
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
+    implementation('com.google.maps.android:maps-utils-ktx:3.2.0')
+
+
+    //Firebase
+    implementation platform("com.google.firebase:firebase-bom:31.2.3")
+
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+
 
     // Material Design
     implementation 'com.google.android.material:material:1.6.0'
@@ -102,6 +121,11 @@ dependencies {
     // Timber
     implementation 'com.jakewharton.timber:timber:5.0.1'
 
+    implementation "com.leinardi.android:speed-dial:3.2.0"
+
+
+    implementation("com.karumi:dexter:6.2.3")
+
     // Local Unit Tests
     implementation "androidx.test:core:1.5.0"
     testImplementation "junit:junit:4.13.2"
@@ -114,7 +138,6 @@ dependencies {
 
     // Instrumented Unit Tests
     androidTestImplementation "junit:junit:4.13.2"
-    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:2.12.1"
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1"
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
     androidTestImplementation "com.google.truth:truth:1.1.3"
