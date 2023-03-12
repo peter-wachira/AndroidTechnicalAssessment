@@ -57,8 +57,7 @@ class DeliveriesActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         binding.deliveriesToolbar.setNavigationOnClickListener {
             binding.drawerLayoutDeliveries.openDrawer(GravityCompat.START)
         }
-        if (isLocationPermissionEnabled()) {
-        } else {
+        if (!isLocationPermissionEnabled()) {
             requestLocationPermission()
         }
     }

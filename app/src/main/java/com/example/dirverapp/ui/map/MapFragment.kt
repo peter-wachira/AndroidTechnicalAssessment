@@ -108,7 +108,6 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                     addGeoLayer(response.value.areas[0])
                     Timber.e("getAreaGeoPoints response ${response.value}")
                 }
-
                 is ApiResponse.Failure -> {
                     activity?.showToast("unable to get sales area details")
                 }

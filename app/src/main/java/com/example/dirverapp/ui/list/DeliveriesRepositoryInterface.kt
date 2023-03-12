@@ -13,5 +13,3 @@ interface DeliveriesRepositoryInterface {
     suspend fun getOrders(): ApiResponse<OrderItemsResponse>
     suspend fun getGeoPoints(): ApiResponse<SalesAreasResponse>
 }
-
-

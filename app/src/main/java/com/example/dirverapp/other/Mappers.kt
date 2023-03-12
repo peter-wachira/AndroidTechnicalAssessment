@@ -16,5 +16,3 @@ fun Order.toOrderEntity(): OrderEntity = OrderEntity(
     this.customerTyCode,
     this.customerCode,
 )
-
-

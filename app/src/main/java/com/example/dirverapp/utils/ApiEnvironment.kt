@@ -1,11 +1,12 @@
 package com.example.dirverapp.utils
 
 import com.example.dirverapp.BuildConfig
+import com.example.dirverapp.other.Constants.BASE_URL
 
 sealed class ApiEnvironment(val baseUrl: String) {
-    object Dev : ApiEnvironment("https://run.mocky.io")
-    object Staging : ApiEnvironment("https://run.mocky.io")
-    object Prod : ApiEnvironment("https://run.mocky.io")
+    object Dev : ApiEnvironment(BASE_URL)
+    object Staging : ApiEnvironment(BASE_URL)
+    object Prod : ApiEnvironment(BASE_URL)
 }
 
 fun getEnvironment(): ApiEnvironment {

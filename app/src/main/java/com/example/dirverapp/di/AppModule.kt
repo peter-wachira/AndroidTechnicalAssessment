@@ -5,7 +5,6 @@ import androidx.room.Room
 import com.example.dirverapp.data.local.OrdersDao
 import com.example.dirverapp.data.local.OrdersDatabase
 import com.example.dirverapp.data.remote.MockAPI
-import com.example.dirverapp.other.Constants.BASE_URL
 import com.example.dirverapp.other.Constants.DATABASE_NAME
 import com.example.dirverapp.ui.list.DeliveriesRepository
 import com.example.dirverapp.ui.list.DeliveriesRepositoryInterface
