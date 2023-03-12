@@ -1,0 +1,95 @@
+{
+  "orders": [
+    {
+      "customerName": "John Smith",
+      "address": "456 Elm St",
+      "orderBatchNumber": "67890",
+      "primaryPhone": "555-5678",
+      "secondaryPhone": "555-9012",
+      "latitude": -1.283333,
+      "longitude": 36.816667,
+      "deliverLocationName": "Nairobi",
+      "orderStatus": "Ongoing",
+      "customerTyCode": "B234",
+      "customerCode": "C789"
+    },
+    {
+      "customerName": "Jane Doe",
+      "address": "789 Oak St",
+      "orderBatchNumber": "12345",
+      "primaryPhone": "555-1234",
+      "secondaryPhone": null,
+      "latitude": 0.023611,
+      "longitude": 37.906111,
+      "deliverLocationName": "Mombasa",
+      "orderStatus": "Pending",
+      "customerTyCode": "A123",
+      "customerCode": "C456"
+    },
+    {
+      "customerName": "Bob Johnson",
+      "address": "321 Pine St",
+      "orderBatchNumber": "24680",
+      "primaryPhone": "555-2468",
+      "secondaryPhone": "555-1357",
+      "latitude": -1.295833,
+      "longitude": 36.823889,
+      "deliverLocationName": "Nairobi",
+      "orderStatus": "Delivered",
+      "customerTyCode": "C345",
+      "customerCode": "A123"
+    },
+    {
+      "customerName": "Mary Wilson",
+      "address": "567 Cedar St",
+      "orderBatchNumber": "13579",
+      "primaryPhone": "555-1357",
+      "secondaryPhone": null,
+      "latitude": -0.716667,
+      "longitude": 37.466667,
+      "deliverLocationName": "Nakuru",
+      "orderStatus": "Pending",
+      "customerTyCode": "B234",
+      "customerCode": "C789"
+    },
+    {
+      "customerName": "Tom Lee",
+      "address": "246 Walnut St",
+      "orderBatchNumber": "80246",
+      "primaryPhone": "555-8024",
+      "secondaryPhone": null,
+      "latitude": -0.283333,
+      "longitude": 36.066667,
+      "deliverLocationName": "Thika",
+      "orderStatus": "Delivered",
+      "customerTyCode": "A123",
+      "customerCode": "C456"
+    },
+    {
+      "customerName": "Sally Brown",
+      "address": "345 Maple St",
+      "orderBatchNumber": "46802",
+      "primaryPhone": "555-4680",
+      "secondaryPhone": "555-1357",
+      "latitude": -1.283333,
+      "longitude": 36.816667,
+      "deliverLocationName": "Nairobi",
+      "orderStatus": "Pending",
+      "customerTyCode": "C345",
+      "customerCode": "A123"
+    },
+    {
+      "customerName": "David Johnson",
+      "address": "789 Oak St",
+      "orderBatchNumber": "02468",
+      "primaryPhone": "555-0246",
+      "secondaryPhone": "555-1357",
+      "latitude": -1.295833,
+      "longitude": 36.823889,
+      "deliverLocationName": "Thika",
+      "orderStatus": "Delivered",
+      "customerTyCode": "A123",
+      "customerCode": "C456"
+    }
+  ]
+}
