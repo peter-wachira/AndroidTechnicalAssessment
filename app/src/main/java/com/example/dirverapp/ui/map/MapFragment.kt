@@ -95,7 +95,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                 getLocations()
                 viewModel.getLocation()
             }
-//            getGeoLayer()
+            getGeoLayer()
         } else {
             requestLocationPermission()
         }
