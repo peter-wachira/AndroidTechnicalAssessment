@@ -9,6 +9,7 @@ import com.example.dirverapp.other.Constants.BASE_URL
 import com.example.dirverapp.other.Constants.DATABASE_NAME
 import com.example.dirverapp.ui.list.DeliveriesRepository
 import com.example.dirverapp.ui.list.DeliveriesRepositoryInterface
+import com.example.dirverapp.utils.getEnvironment
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,7 +27,7 @@ object AppModule {
     fun provideMockApi(): MockAPI {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BASE_URL)
+            .baseUrl(getEnvironment().baseUrl)
             .build()
             .create(MockAPI::class.java)
     }

@@ -26,12 +26,44 @@ android {
         testInstrumentationRunner "com.example.dirverapp.HiltTestRunner"
     }
 
+    flavorDimensions "api"
+
+    productFlavors {
+        dev {
+            dimension "api"
+            versionNameSuffix "- dev"
+
+        }
+
+        prod {
+            dimension "api"
+        }
+
+        staging {
+            dimension "api"
+            versionNameSuffix "-staging"
+
+        }
+
+    }
+
+
     buildTypes {
-        release {
-            minifyEnabled false
+        debug {
+            minifyEnabled true
+            shrinkResources true
+            debuggable true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
     }
+
 
     buildFeatures {
         viewBinding true
