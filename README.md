@@ -16,6 +16,7 @@ Gradle build system
 
 2. To run tests in Android Studio, navigate to the Build menu and select Run tests. Alternatively, you can run tests via the command line by running ./gradlew test for unit tests and ./gradlew connectedAndroidTest for instrumentation tests. Once the tests have completed, you can view the results in the Run tab in Android Studio or via the command line output.
 
+
 ## TOC
 
 - [Architecture](#architecture)
