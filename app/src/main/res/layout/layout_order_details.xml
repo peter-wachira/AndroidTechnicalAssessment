@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="4dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginBottom="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    app:cardPreventCornerOverlap="false"
+    app:cardUseCompatPadding="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_order_delivery_location"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:drawablePadding="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/work_sans"
+            android:maxLines="1"
+            android:textColor="@android:color/black"
+            app:fontFamily="@font/work_sans"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Gaspoint Retailers Gas Shop" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_customer_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/work_sans"
+            android:gravity="start"
+            android:maxLines="1"
+            android:textColor="@color/colorPrimary"
+            app:fontFamily="@font/work_sans"
+            android:drawablePadding="4dp"
+            android:padding="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_customer_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias=".0"
+            app:layout_constraintStart_toEndOf="@+id/view3"
+            app:layout_constraintTop_toTopOf="@+id/tv_customer_name"
+            tools:text="123 456" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_count"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/work_sans"
+            android:gravity="end"
+            android:textColor="@color/colorTextBlackPrimary"
+            app:fontFamily="@font/work_sans"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_delivery_status"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="1 of 50" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_customer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/work_sans"
+            android:maxLines="1"
+            android:textColor="@color/colorPrimary"
+            app:fontFamily="@font/work_sans"
+            app:layout_constraintStart_toStartOf="@+id/tv_order_delivery_location"
+            app:layout_constraintTop_toBottomOf="@+id/tv_order_delivery_location"
+            tools:text="James Muriuki" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_customer_name"
+            app:layout_constraintStart_toEndOf="@+id/tv_customer_name"
+            app:layout_constraintTop_toTopOf="@+id/tv_customer_name" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_delivery_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/work_sans"
+            android:maxLines="1"
+            android:textColor="@color/color_text_ongoing_order"
+            app:fontFamily="@font/work_sans"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_customer_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_customer_name"
+            tools:text="Delivery Status" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
