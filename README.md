@@ -14,9 +14,9 @@ Gradle build system
 
 ```MAPS_API_KEY="AIzaSyBcjeoJvP7zuhdwe3ocMkoPf9ALT7w4Otk"```
 
-2.To run tests in Android Studio, navigate to the Build menu and select Run tests.
-- Alternatively, you can run tests via the command line by running ./gradlew test for unit tests and ./gradlew connectedAndroidTest for instrumentation tests.
-- Once the tests have completed, you can view the results in the Run tab in Android Studio or via the command line output.
+2. To run tests in Android Studio, navigate to the Build menu and select Run tests.
+ - Alternatively, you can run tests via the command line by running ./gradlew test for unit tests and ./gradlew connectedAndroidTest for instrumentation tests.
+ - Once the tests have completed, you can view the results in the Run tab in Android Studio or via the command line output.
 
 ## TOC
 
@@ -62,7 +62,7 @@ The App is not organized into multiple modules but follows the same principles o
 
 Once the app is launched, the user has the option of choosing a delivery order to fulfill.
 
-**Delivery details Screen**
+**Delivery details (Maps) Screen**
 
 This screen is accessible from the Deliveries screen to allow driver to see the order details.
 
