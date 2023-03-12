@@ -81,7 +81,6 @@ class MapFragment : Fragment(), OnMapReadyCallback {
             mMap.apply {
                 clear()
                 setMinZoomPreference(5F)
-
                 isBuildingsEnabled = false
                 uiSettings.isRotateGesturesEnabled = true
                 uiSettings.isMapToolbarEnabled = false
@@ -96,7 +95,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                 getLocations()
                 viewModel.getLocation()
             }
-            getGeoLayer()
+//            getGeoLayer()
         } else {
             requestLocationPermission()
         }
@@ -141,7 +140,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         }.build()
 
         with(mMap) {
-            animateCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds, 20))
+            animateCamera(CameraUpdateFactory.newLatLngBounds(latLngBounds, 80))
         }
     }
 

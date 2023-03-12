@@ -7,7 +7,7 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     id("dagger.hilt.android.plugin")
     id("kotlin-parcelize")
-    id 'com.google.secrets_gradle_plugin' version '0.5'
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
     id("io.gitlab.arturbosch.detekt")
 }
 
@@ -22,8 +22,6 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
-
-        buildConfigField("String","MAPS_API_KEY",MAPS_API_KEY)
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
