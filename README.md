@@ -12,11 +12,10 @@ Gradle build system
 
 1. Before running the project add the maps API key. Go to your local.properties file, then add this line:
 
-```MAPS_API_KEY="AIzaSyBcjeoJvP7zuhdwe3ocMkoPf9ALT7w4Otk"```
+```MAPS_API_KEY=AIzaSyBcjeoJvP7zuhdwe3ocMkoPf9ALT7w4Otk```
 
-2. To run tests in Android Studio, navigate to the Build menu and select Run tests.
- - Alternatively, you can run tests via the command line by running ./gradlew test for unit tests and ./gradlew connectedAndroidTest for instrumentation tests.
- - Once the tests have completed, you can view the results in the Run tab in Android Studio or via the command line output.
+2. To run tests in Android Studio, navigate to the Build menu and select Run tests. Alternatively, you can run tests via the command line by running ./gradlew test for unit tests and ./gradlew connectedAndroidTest for instrumentation tests. Once the tests have completed, you can view the results in the Run tab in Android Studio or via the command line output.
+
 
 ## TOC
 
